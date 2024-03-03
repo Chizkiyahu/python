@@ -23,7 +23,7 @@ RUN Write-Host ('Downloading get-pip.py ...'); \
     };
 
 # Stage 2: Build the final image, install Python and pip
-FROM mcr.microsoft.com/windows/servercore:ltsc2022
+FROM mcr.microsoft.com/windows/nanoserver:ltsc2022
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
 COPY --from=downloader python.exe python.exe
