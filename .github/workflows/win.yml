@@ -23,7 +23,6 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Generate Jobs
         run: |
-          tag = ghcr.io/chizkiyahu/python/python:win
-          docker build . -f  3.11\windows\nanoserver-ltsc2022\Dockerfile -t $tag
+          docker build . -f  3.11\windows\nanoserver-ltsc2022\Dockerfile -t ghcr.io/chizkiyahu/python/python:win
           docker push $tag
           docker images
