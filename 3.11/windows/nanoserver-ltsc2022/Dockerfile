@@ -64,8 +64,6 @@ RUN call C:\Python\pipver.cmd && \
     pip --version && \
     echo Complete.
 
-RUN pip install virtualenv
-
 USER ContainerUser
 
 CMD ["python"]

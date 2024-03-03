@@ -12,7 +12,15 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Log in to the Container registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - name: Generate Jobs
         run: |
-          docker build . -f  3.11\windows\nanoserver-ltsc2022\Dockerfile -t t1
+          tag = ghcr.io/chizkiyahu/python/python:win
+          docker build . -f  3.11\windows\nanoserver-ltsc2022\Dockerfile -t $tag
+          docker push $tag
           docker images
